@@ -1,0 +1,1 @@
+var snakeApp = angular.module('snakeApp',[]);
