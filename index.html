@@ -29,7 +29,7 @@
     </header>
     <div id="container" ng-controller="SnakeMainController">
         <div class="tagline game-btns">
-            <a href="#" class="button button--start">Start Game</a>
+            <a href="#" class="button button--start" ng-click="runGame">Start Game</a>
         </div>
 
         <div id="main" role="main">
@@ -41,11 +41,9 @@
                 </div>
                 <span class="blc"></span><span class="trc"></span>
             </div>
-            <article class="field">
-                <div class="snake">
-                    <div class="snake-head"></div>
-                    <div class="snake-body" ng-style="width: {{snakeBodyWidth}}"></div>
-                    <div class="snake-tail"></div>
+            <article class="board">
+                <div class="board__row" ng-repeat="row in board">
+                    <div class="board__col" ng-repeat="col in row track by $index" ng-style="{'background': '{{drawObjects($parent.$index, $index)}}'}"></div>
                 </div>
             </article>
         </div>
@@ -76,10 +74,7 @@
 
 <script src="vendors/js/angular.min.js"></script>
 
-<!-- Module-->
 <script src="js/snakeApp.js"></script>
 
-<!-- Controllers -->
-<script src="js/controllers/SnakeMainController.js"></script>
 </body>
 </html>
