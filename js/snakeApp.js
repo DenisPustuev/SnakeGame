@@ -37,7 +37,7 @@ var snakeApp = angular.module('snakeApp', [])
 
 
         $scope.runGame = function(){
-            $interval( moveSnake(), snakeSpeed)
+            $interval( moveSnake, snakeSpeed)
         };
 
         $scope.drawObjects = function (rowIndex, colIndex) {
@@ -55,9 +55,8 @@ var snakeApp = angular.module('snakeApp', [])
             if(snake.direction == 'right'){
                 snake.position.x = snake.position.x + 1;
                 snake.head.x = snake.head.x + 1;
-
-                console.log(snake.head.x);
             }
+            console.log(snake.head.x);
         };
         var setupBoard = function () {
 
